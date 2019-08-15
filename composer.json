@@ -11,5 +11,10 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.5"
-     }
+     },
+    "autoload": {
+        "psr-4": {
+            "Zd\\wechat\\": "src/",
+        }
+    }
 }
