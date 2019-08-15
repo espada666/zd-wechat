@@ -1,6 +1,6 @@
 <?php
 
-namespace Plus\wechat\core;
+namespace Zd\wechat\core;
 
 /**
  * @since 1.0.0

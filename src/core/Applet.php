@@ -5,13 +5,13 @@
  * @author espada 369850596@qq.com
  * @license MIT
  */
-namespace Plus\wechat\core;
+namespace Zd\wechat\core;
 
-use Plus\wechat\core\AbstractWechat;
+use Zd\wechat\core\AbstractWechat;
 
-use Plus\wechat\core\Config;
+use Zd\wechat\core\Config;
 
-use Plus\wechat\request\Curl;
+use Zd\wechat\request\Curl;
 
 class Applet extends AbstractWechat
 {

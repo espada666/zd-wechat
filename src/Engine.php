@@ -6,7 +6,7 @@
  * @license MIT
  */
 
-namespace Plus\wechat;
+namespace Zd\wechat;
 
 /**
  * Class Factory.
@@ -41,7 +41,7 @@ class Engine
      */
     public function __get($name)
     {
-        $className = '\\Plus\\wechat\\core\\' . ucwords($name);
+        $className = '\\Zd\\wechat\\core\\' . ucwords($name);
         return new $className($this->config);
     }
 }

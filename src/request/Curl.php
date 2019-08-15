@@ -5,7 +5,7 @@
  * @license MIT
  * @author espada 369850596@qq.com
  */
-namespace Plus\wechat\request;
+namespace Zd\wechat\request;
 
 class Curl
 {

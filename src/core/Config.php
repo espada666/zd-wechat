@@ -4,7 +4,7 @@
  * @author espada 369850596@qq.com
  * @license MIT
  */
-namespace Plus\wechat\core;
+namespace Zd\wechat\core;
 
 class Config
 {

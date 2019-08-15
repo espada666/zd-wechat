@@ -6,12 +6,12 @@
  * @license MIT
  */
 
-namespace Plus\wechat;
+namespace Zd\wechat;
 
 /**
  * Class Factory.
- * @property \Plus\wechat\core\Applet $applet
- * @method static \Plus\wechat\App init($config)
+ * @property \Zd\wechat\core\Applet $applet
+ * @method static \Zd\wechat\App init($config)
  */
 class App
 {
@@ -24,7 +24,7 @@ class App
      */
     public static function init($config = [])
     {
-        return new \Plus\wechat\Engine($config);
+        return new \Zd\wechat\Engine($config);
     }
 
 }
