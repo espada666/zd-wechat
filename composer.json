@@ -1,0 +1,15 @@
+{
+    "name": "plus/wechat",
+    "description": "a simple wechat extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jiacheng liao",
+            "email": "369850596@163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5"
+     }
+}
