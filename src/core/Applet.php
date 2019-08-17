@@ -100,6 +100,20 @@ class Applet extends AbstractWechat
         }
 
         return $dataObj;
-
     }
+
+    /**
+     * 使用code获取session信息
+     *
+     * @param string $code
+     * @return array
+     */
+    public function codeToSession($code)
+    {
+        $result = Curl::get(Config::CODE_TO_SESSION_URL . '?appid=' . $this->config['app_id'] . 
+            '&secret=' . $this->config['app_secret'] . '&js_code=' . $code . '&grant_type=authorization_code');
+        $result = json_decode($result, true);
+        return $result;
+    }
+    
 }

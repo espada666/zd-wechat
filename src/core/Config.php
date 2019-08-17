@@ -41,4 +41,9 @@ class Config
      */
     const TEMPLATE_PUSH_URL = 'https://api.weixin.qq.com/cgi-bin/message/template/send';
 
+    /**
+     * code获取session的地址
+     */
+    const CODE_TO_SESSION_URL = 'https://api.weixin.qq.com/sns/jscode2session';
+
 }
