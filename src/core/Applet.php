@@ -64,7 +64,8 @@ class Applet extends AbstractWechat
      */
     public function getSessionKey($code)
     {
-        $result = Curl::get(Config::SESSION_KEY_URL . '?appid=' . $this->config['app_id'] . '&secret=' . $this->config['app_secrect'] . '&js_code=' . $code);
+        $result = Curl::get(Config::SESSION_KEY_URL . '?appid=' . $this->config['app_id'] . '&secret=' . 
+        $this->config['app_secret'] . '&js_code=' . $code);
         return $result;
     }
 
@@ -100,20 +101,28 @@ class Applet extends AbstractWechat
         }
 
         return $dataObj;
+
     }
 
     /**
-     * 使用code获取session信息
+     * 使用code获取session
      *
      * @param string $code
-     * @return array
+     * @return void
      */
     public function codeToSession($code)
     {
-        $result = Curl::get(Config::CODE_TO_SESSION_URL . '?appid=' . $this->config['app_id'] . 
-            '&secret=' . $this->config['app_secret'] . '&js_code=' . $code . '&grant_type=authorization_code');
-        $result = json_decode($result, true);
+        if (empty($code)) {
+            return false;
+        }
+
+        $result = Curl::get(Config::CODE_TO_SESSION_URL . '?appid=' . $this->config['app_id'] . '&secret=' . $this->config['app_secret'] . 
+        '&js_code=' . $code . '&grant_type=authorization_code');
         return $result;
+
     }
-    
+
+
+
+  
 }
