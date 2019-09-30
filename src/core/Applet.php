@@ -36,6 +36,7 @@ class Applet extends AbstractWechat
     public function getAccessToken()
     {
         $result = Curl::get(Config::CREDENTIAL_ACCESS_TOKEN_URL . '&appid=' . $this->config['app_id'] . '&secret=' . $this->config['app_secret']);
+        $result = json_decode($result);
         if (isset($result->access_token)) {
             return $result->access_token;
         }
@@ -66,6 +67,7 @@ class Applet extends AbstractWechat
     {
         $result = Curl::get(Config::SESSION_KEY_URL . '?appid=' . $this->config['app_id'] . '&secret=' . 
         $this->config['app_secret'] . '&js_code=' . $code);
+        $result = json_decode($result);
         return $result;
     }
 
@@ -118,11 +120,12 @@ class Applet extends AbstractWechat
 
         $result = Curl::get(Config::CODE_TO_SESSION_URL . '?appid=' . $this->config['app_id'] . '&secret=' . $this->config['app_secret'] . 
         '&js_code=' . $code . '&grant_type=authorization_code');
+        $result = json_encode($result);
         return $result;
 
     }
 
-
+    
 
   
 }
