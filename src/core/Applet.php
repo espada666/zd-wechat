@@ -47,14 +47,30 @@ class Applet extends AbstractWechat
     /**
      * 生成次数不限的二维码
      *
-     * @param string $path
-     * @param string $urlParams
-     * @param integer $width
-     * @return void
+     * @param string $accessToken 微信获取的access_token
+     * @param string $page 小程序对应页面
+     * @param string $scene 场景参数
+     * @param integer $width 宽度
+     * @return object
      */
-    public function getWxacodeUnlimit($path, $urlParams = '', $width = 200)
+    public function getWxacodeUnlimit($accessToken, $page, $scene = '', $width = 200)
     {
-        
+        if (!$accessToken) {
+            throw new \Exception('accessToken无效', 0);
+        }
+
+        $data = json_encode([
+            'scene' => $scene,
+            'page' => $page,
+            'width' => $width
+        ]);
+        $result = Curl::post(Config::WXACODEUNLIMIT_URL . '?access_token=' . $accessToken, $data);
+        $resp = json_decode($result);
+        if (isset($resp->errcode)) {
+            throw new \Exception('生成错误' . $resp->errmsg, $resp->errcode);
+        }
+        return $result;
+
     }
 
     /**

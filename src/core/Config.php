@@ -35,7 +35,7 @@ class Config
     /**
      * 不受限制的生成小程序二维码请求连接
      */
-    const WXACODEUNLIMIT_URL = 'https://api.weixin.qq.com/wxa/getwxacode';
+    const WXACODEUNLIMIT_URL = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit';
     /**
      * 模板推送
      */
