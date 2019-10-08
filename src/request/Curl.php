@@ -55,12 +55,27 @@ class Curl
         }
 
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        /* curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Content-Length: ' . strlen($data)
-        )); */
         $result = curl_exec($ch);
         curl_close($ch);
+        return $result;
+    }
+
+    /**
+     * post json
+     *
+     * @param string $url
+     * @param string $data
+     * @param array $options
+     * @return object
+     */
+    public static function postJson($url, $data, $options = [])
+    {
+        $result = self::post($url, $data, [
+            CURLOPT_HTTPHEADER => [
+                'Content-Type: application/json', 
+                'Content-Length:' . strlen($data)
+            ]
+        ]);
         return $result;
     }
 }

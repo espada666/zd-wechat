@@ -11,6 +11,7 @@ namespace Zd\wechat;
 /**
  * Class Factory.
  * @property \Wechat\core\Applet $applet
+ * @property \Wechat\core\AppletAnalysis $appletAnalysis
  */
 class Engine
 {
@@ -21,6 +22,13 @@ class Engine
      * @var array
      */
     private $config = [];
+
+    /**
+     * 实例化的方法集合
+     *
+     * @var array
+     */
+    private static $classes = [];
 
     /**
      * initialize
@@ -42,6 +50,11 @@ class Engine
     public function __get($name)
     {
         $className = '\\Zd\\wechat\\core\\' . ucwords($name);
-        return new $className($this->config);
+        if (!isset(static::$classes[$className])) {
+            static::$classes[$className] = new $className($this->config);
+        }
+
+        return static::$classes[$className];
+        //return new $className($this->config);
     }
 }

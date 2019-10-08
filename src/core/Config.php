@@ -46,4 +46,22 @@ class Config
      */
     const CODE_TO_SESSION_URL = 'https://api.weixin.qq.com/sns/jscode2session';
 
+
+    /*-----------------------------------小程序数据分析-----------------------------------*/
+
+    /**
+     * 访问月留存
+     */
+    const MONTHLY_RETAIN_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappidmonthlyretaininfo';
+
+    /**
+     * 访问周留存
+     */
+    const WEEKLY_RETAIN_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappidweeklyretaininfo';
+
+    /**
+     * 访问日留存
+     */
+    const DAILY_RETAIN_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappiddailyretaininfo';
+
 }
