@@ -1,11 +1,11 @@
 <?php
 /**
- * 小程序数据分析
+ * 小程序数据分析统计部分
  * 
  * @author espada 369850596@qq.com
  * @license MIT
  */
-namespace Zd\wechat\core;
+namespace Zd\wechat\core\applet;
 
 use Zd\wechat\core\AbstractWechat;
 
@@ -13,10 +13,10 @@ use Zd\wechat\core\Config;
 
 use Zd\wechat\request\Curl;
 
-class AppletAnalysis extends AbstractWechat
+class Analysis extends AbstractWechat
 {
 
-    public $config = [];
+    private $config = [];
 
     /**
      * access_token
@@ -28,7 +28,7 @@ class AppletAnalysis extends AbstractWechat
     /**
      * 构造函数
      *
-     * @param array $config
+     * @param [type] $config
      */
     public function __construct($config)
     {
@@ -215,5 +215,6 @@ class AppletAnalysis extends AbstractWechat
         $result = Curl::postJson(Config::DAILY_SUMMARY_URL . '?access_token=' . $this->accessToken, $data);
         return json_decode($result);
     }
-  
+
+    
 }
