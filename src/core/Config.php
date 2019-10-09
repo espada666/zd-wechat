@@ -36,6 +36,11 @@ class Config
      * 不受限制的生成小程序二维码请求连接
      */
     const WXACODEUNLIMIT_URL = 'https://api.weixin.qq.com/wxa/getwxacodeunlimit';
+
+    /**
+     * 永久有效，有数量限制
+     */
+    const WXQRCODE_URL = 'https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode';
     /**
      * 模板推送
      */
