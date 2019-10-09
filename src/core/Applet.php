@@ -65,16 +65,11 @@ class Applet extends AbstractWechat
             'width' => $width
         ]);
         $result = Curl::postJson(Config::WXACODEUNLIMIT_URL . '?access_token=' . $accessToken, $data);
-        /* $result = Curl::post(Config::WXACODEUNLIMIT_URL . '?access_token=' . $accessToken, $data, [
-            CURLOPT_HTTPHEADER => [
-                'Content-Type: application/json', 
-                'Content-Length:' . strlen($data)
-            ]
-        ]); */
         $resp = json_decode($result);
         if (isset($resp->errcode)) {
             throw new \Exception('生成错误' . $resp->errmsg, $resp->errcode);
         }
+        
         return $result;
 
     }

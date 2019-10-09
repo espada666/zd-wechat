@@ -64,4 +64,39 @@ class Config
      */
     const DAILY_RETAIN_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappiddailyretaininfo';
 
+    /**
+     * 月趋势
+     */
+    const MONTHLY_VISIT_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappidmonthlyvisittrend';
+
+    /**
+     * 周趋势
+     */
+    const WEEKLY_VISIT_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappidweeklyvisittrend';
+
+    /**
+     * 日趋势
+     */
+    const DAILY_VISIT_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappiddailyvisittrend';
+
+    /**
+     * 用户画像
+     */
+    const USER_PORTRAIT_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappiduserportrait';
+
+    /**
+     * 小程序访问分布
+     */
+    const VISIT_DISTRIBUTION_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappidvisitdistribution';
+
+    /**
+     * 访问页面
+     */
+    const VISIT_PAGE_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappidvisitpage';
+
+    /**
+     * 小程序数据概况
+     */
+    const DAILY_SUMMARY_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappiddailysummarytrend';
+
 }

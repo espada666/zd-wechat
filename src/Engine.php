@@ -55,6 +55,5 @@ class Engine
         }
 
         return static::$classes[$className];
-        //return new $className($this->config);
     }
 }

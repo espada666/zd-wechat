@@ -11,6 +11,7 @@ namespace Zd\wechat;
 /**
  * Class Factory.
  * @property \Zd\wechat\core\Applet $applet
+ * @property \Zd\wechat\core\AppletAnalysis $appletAnalysis
  * @method static \Zd\wechat\App init($config)
  */
 class App
