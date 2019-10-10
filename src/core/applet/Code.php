@@ -7,41 +7,14 @@
  */
 namespace Zd\wechat\core\applet;
 
-use Zd\wechat\core\AbstractWechat;
+use Zd\wechat\core\Applet;
 
 use Zd\wechat\core\Config;
 
 use Zd\wechat\request\Curl;
 
-use function GuzzleHttp\json_encode;
-
-class Code extends AbstractWechat
+class Code extends Applet
 {
-
-    private $config = [];
-
-    private $accessToken = '';
-
-    /**
-     * 构造函数
-     *
-     * @param [type] $config
-     */
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * 设置access_token
-     *
-     * @param [type] $accessToken
-     * @return void
-     */
-    public function setAccessToken($accessToken)
-    {
-        $this->accessToken = $accessToken;
-    }
 
     /**
      * 生成次数不限的二维码

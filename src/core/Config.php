@@ -104,4 +104,21 @@ class Config
      */
     const DAILY_SUMMARY_URL = 'https://api.weixin.qq.com/datacube/getweanalysisappiddailysummarytrend';
 
+    /*------------------------------------------ 微信支付 ------------------------------------------------*/
+
+    /**
+     * 统一下单的请求地址
+     */
+    const UNIFIED_ORDER_URL = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
+
+    /**
+     * 订单查询请求地址
+     */
+    const ORDER_QUERY_URL = 'https://api.mch.weixin.qq.com/pay/orderquery';
+
+    /**
+     * 退款的请求地址
+     */
+    const REFUND_URL = 'https://api.mch.weixin.qq.com/secapi/pay/refund';
+
 }

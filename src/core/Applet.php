@@ -7,57 +7,27 @@
  */
 namespace Zd\wechat\core;
 
-use Zd\wechat\core\AbstractWechat;
+use Zd\wechat\core\BaseWechat;
 
 /**
  * class factory
  * @property \Zd\wechat\core\applet\Auth $auth
+ * @property \Zd\wechat\core\applet\Code $code
+ * @property \Zd\wechat\core\applet\Analysis $analysis
  * 
  */
-class Applet extends AbstractWechat
+class Applet extends BaseWechat
 {
-
-    private $config = [];
-
-    private static $instance = null;
+    protected $accessToken = '';
 
     /**
-     * 构造函数
+     * 设置access_token
      *
-     * @param array $config
-     */
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * magic
-     *
-     * @param string $name
+     * @param [type] $accessToken
      * @return void
      */
-    public function __get($name)
+    public function setAccessToken($accessToken)
     {
-        $className = '\\Zd\\wechat\\core\\applet\\' . ucwords($name);
-        if (self::$instance == null) {
-            self::$instance = new $className($this->config);
-        }
-
-        return self::$instance;
+        $this->accessToken = $accessToken;
     }
-
-    /**
-     * 私有化clone
-     *
-     * @return void
-     */
-    private function __clone()
-    {
-        
-    }
-
-    
-
-  
 }

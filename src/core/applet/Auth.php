@@ -7,26 +7,14 @@
  */
 namespace Zd\wechat\core\applet;
 
-use Zd\wechat\core\AbstractWechat;
+use Zd\wechat\core\Applet;
 
 use Zd\wechat\core\Config;
 
 use Zd\wechat\request\Curl;
 
-class Auth extends AbstractWechat
+class Auth extends Applet
 {
-
-    private $config = [];
-
-    /**
-     * 构造函数
-     *
-     * @param [type] $config
-     */
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
 
     /**
      * 获取access_token

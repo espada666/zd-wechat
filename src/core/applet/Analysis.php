@@ -7,44 +7,14 @@
  */
 namespace Zd\wechat\core\applet;
 
-use Zd\wechat\core\AbstractWechat;
+use Zd\wechat\core\Applet;
 
 use Zd\wechat\core\Config;
 
 use Zd\wechat\request\Curl;
 
-class Analysis extends AbstractWechat
+class Analysis extends Applet
 {
-
-    private $config = [];
-
-    /**
-     * access_token
-     *
-     * @var string
-     */
-    private $accessToken = '';
-
-    /**
-     * 构造函数
-     *
-     * @param [type] $config
-     */
-    public function __construct($config)
-    {
-        $this->config = $config;
-    }
-
-    /**
-     * 设置access_token
-     *
-     * @param [type] $accessToken
-     * @return void
-     */
-    public function setAccessToken($accessToken)
-    {
-        $this->accessToken = $accessToken;
-    }
 
     /**
      * 获取小程序访问的月留存
