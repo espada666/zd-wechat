@@ -121,4 +121,14 @@ class Config
      */
     const REFUND_URL = 'https://api.mch.weixin.qq.com/secapi/pay/refund';
 
+    /**
+     * 关闭订单请求地址
+     */
+    const CLOSE_ORDER_URL = 'https://api.mch.weixin.qq.com/pay/closeorder';
+
+    /**
+     * 退款查询
+     */
+    const REFUND_QUERY_URL = 'https://api.mch.weixin.qq.com/pay/refundquery';
+
 }

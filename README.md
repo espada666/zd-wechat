@@ -1,5 +1,5 @@
-# zd-wechat
-一个简单的微信扩展包
+# 一个简单的微信扩展
+
 
 ### 安装
 
@@ -12,7 +12,7 @@ composer require zd/wechat
 ```
 
 
-### 入门使用
+### 快速入门
 
 ```php
 
@@ -26,11 +26,50 @@ $config = [
 $wechat = App::init($config);
 
 // 获取小程序的access_token 
-$token = $wechat->applet->getAccessToken();
+$token = $wechat->applet->auth->getAccessToken();
 
 ```
 
 ### 结构
 
-coming soon...
+> 小程序模块
+
+&nbsp; __auth__   用户身份信息授权
+```php
+/**
+ *  获取access_token
+ * 
+ *  @return string 
+ */
+getAccessToken()
+
+
+/**
+ * 获取session_key
+ *
+ * @param string $code
+ * @return object
+ */
+getSessionKey($code)
+
+
+
+```
+
+&nbsp; __code__   小程序二维码处理
+
+```php
+
+```
+
+&nbsp; __analysis__   小程序数据分析
+
+```php
+
+```
+
+
+> 微信支付模块
+    
+        
 

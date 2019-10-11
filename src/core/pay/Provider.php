@@ -11,8 +11,6 @@ use Zd\wechat\core\Pay;
 
 use Zd\wechat\core\Config;
 
-use Zd\wechat\request\Curl;
-
 class Provider extends Pay
 {
 
@@ -20,27 +18,22 @@ class Provider extends Pay
      * 统一下单
      *
      * @param array $params
-     * @return void
+     * @return array
+     * @throws Exception
      */
     public function unifiedOrder($params = [])
     {
-        if (!isset($params['out_trade_no']) && !isset($params['transaction_id'])) {
-            throw new \Exception('退款申请接口中，out_trade_no、transaction_id至少填一个！', 0);
+        $params['spbill_create_ip'] = $this->getClientIp();
+        $result = $this->request(Config::UNIFIED_ORDER_URL, $params);
+        if ($result['return_code'] == 'FAIL') {
+            throw new \Exception($result['return_msg'], 0);
+        }
+        // 对返回参数进行签名校验
+        if(!$this->checkSign($result, $this->config['key'])) {
+            throw new \Exception('响应的参数签名有误', 0);
         }
 
-        if (!isset($params['out_refund_no'])) {
-            throw new \Exception('退款申请接口中，缺少必填参数out_refund_no！', 0);
-        }
-
-        if (!isset($params['total_fee'])) {
-            throw new \Exception('退款申请接口中，缺少必填参数total_fee！', 0);
-        }
-
-        if (!isset($params['refund_fee'])) {
-            throw new \Exception('退款申请接口中，缺少必填参数refund_fee！', 0);
-        }
-        
-        $sign = $this->makeSign($params, 'asdfasdf');
+        return $result;
     }
 
     /**
@@ -51,7 +44,39 @@ class Provider extends Pay
      */
     public function refund($params = [])
     {
+        return $this->request(Config::REFUND_URL, $params);
+    }
 
+    /**
+     * 查询订单
+     *
+     * @param array $params
+     * @return array
+     */
+    public function orderQuery($params = [])
+    {
+        return $this->request(Config::REFUND_URL, $params);
+    }
+
+    /**
+     * 关闭订单
+     *
+     * @param array $params
+     * @return array
+     */
+    public function closeOrder($params = [])
+    {
+        return $this->request(Config::CLOSE_ORDER_URL, $params);
+    }
+
+    /**
+     * 查询退款
+     * @param array $params
+     * @return array
+     */
+    public function refundQuery($params = [])
+    {
+        return $this->request(Config::REFUND_QUERY_URL, $params);
     }
     
 }

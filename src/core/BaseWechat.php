@@ -17,7 +17,7 @@ use Zd\wechat\core\AbstractWechat;
 class BaseWechat extends AbstractWechat
 {
 
-    private $config = [];
+    protected $config = [];
 
     private static $instance = null;
 

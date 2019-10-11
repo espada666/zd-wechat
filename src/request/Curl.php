@@ -76,6 +76,23 @@ class Curl
                 'Content-Length:' . strlen($data)
             ]
         ]);
+
+        return $result;
+    }
+
+    /**
+     * post xml
+     *
+     * @param string $url
+     * @param string $xml
+     * @return array
+     */
+    public static function postXml($url, $xml, $options = [])
+    {
+        $options[CURLOPT_SSL_VERIFYPEER] = true;
+        $options[CURLOPT_SSL_VERIFYHOST] = 2;
+        $result = self::post($url, $xml, $options);
+        $result = json_decode(json_encode(simplexml_load_string($result, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
         return $result;
     }
 }

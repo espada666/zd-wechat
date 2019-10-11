@@ -24,23 +24,7 @@ class Normal extends BaseWechat
      */
     public function unifiedOrder($params = [])
     {
-        if (!isset($params['out_trade_no']) && !isset($params['transaction_id'])) {
-            throw new \Exception('退款申请接口中，out_trade_no、transaction_id至少填一个！', 0);
-        }
-
-        if (!isset($params['out_refund_no'])) {
-            throw new \Exception('退款申请接口中，缺少必填参数out_refund_no！', 0);
-        }
-
-        if (!isset($params['total_fee'])) {
-            throw new \Exception('退款申请接口中，缺少必填参数total_fee！', 0);
-        }
-
-        if (!isset($params['refund_fee'])) {
-            throw new \Exception('退款申请接口中，缺少必填参数refund_fee！', 0);
-        }
         
-        //var_dump($this->config);
     }
 
     /**
