@@ -131,4 +131,32 @@ class Config
      */
     const REFUND_QUERY_URL = 'https://api.mch.weixin.qq.com/pay/refundquery';
 
+
+    /*------------------------------- 小微商户 -----------------------------------*/
+
+    /**
+     * 申请入驻请求地址
+     */
+    const MICRO_SUBMIT_URL = 'https://api.mch.weixin.qq.com/applyment/micro/submit';
+
+    /**
+     * 查询申请状态
+     */
+    const MICRO_GETSTATE_URL = 'https://api.mch.weixin.qq.com/applyment/micro/getstate';
+
+    /**
+     * 小微商户提交升级
+     */
+    const MICRO_UPGRADE_URL = 'https://api.mch.weixin.qq.com/applyment/micro/submitupgrade';
+
+    /**
+     * 查询升级状态
+     */
+    const MICRO_GETUPGRADESTATE_URL = 'https://api.mch.weixin.qq.com/applyment/micro/getupgradestate';
+
+    /**
+     * 修改联系信息
+     */
+    const MICRO_MODIFYCONTACTINFO_URL = 'https://api.mch.weixin.qq.com/applyment/micro/modifycontactinfo';
+
 }

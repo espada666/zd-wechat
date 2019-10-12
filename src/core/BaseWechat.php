@@ -18,8 +18,15 @@ class BaseWechat extends AbstractWechat
 {
 
     protected $config = [];
-
+    
     private static $instance = null;
+
+    /**
+     * 禁止实例化的类
+     *
+     * @var array
+     */
+    protected $illegalClass = [];
 
     /**
      * 构造函数
@@ -39,6 +46,10 @@ class BaseWechat extends AbstractWechat
      */
     public function __get($name)
     {
+        if (in_array($name, $this->illegalClass)) {
+            throw new \Exception('invalid class', 0);
+        }
+
         $className = '\\' . ucfirst(strtolower(get_class($this))) . '\\' . ucwords($name);
         if (self::$instance == null) {
             self::$instance = new $className($this->config);
